@@ -1,0 +1,33 @@
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  extends: [ 'airbnb', 'eslint-config-airbnb-typescript-prettier' ],
+  parserOptions: {
+    ecmaVersion: 2020,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  rules: {
+    radix: 'off',
+    'no-template-curly-in-string': 'off',
+    'no-unused-vars': 'error',
+    'no-param-reassign': 'warn',
+    'react/jsx-props-no-spreading': 'off',
+    'react-hooks/exhaustive-deps': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    'import/prefer-default-export': 'off',
+    'no-unused-expressions': 'warn',
+    'consistent-return': 'off',
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'no-useless-constructor': 'off',
+    'class-methods-use-this': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
+    'no-use-before-define': 'off',
+    'no-shadow': 'off',
+  },
+};
