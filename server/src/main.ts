@@ -1,12 +1,11 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './modules/App.module';
-import { DevKeys } from './shared/keys/keys.dev';
+import { AppModule } from './App.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true, logger: ['log', 'error', 'warn'] });
+  const app = await NestFactory.create(AppModule);
 
-  app.setGlobalPrefix(DevKeys.ApiPath);
-  await app.listen(DevKeys.Port);
+  app.setGlobalPrefix(process.env.API_PATH);
+  await app.listen(process.env.PORT);
 }
 
 bootstrap();

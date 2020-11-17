@@ -23,6 +23,7 @@
     }
   },
   "dependencies": {
+    "@nestjs/config": "^0.5.0",
     "@nestjs/swagger": "^4.7.1",
     "concurrently": "^5.3.0",
     "swagger-ui-express": "^4.1.4",

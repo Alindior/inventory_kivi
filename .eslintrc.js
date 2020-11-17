@@ -1,6 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: [ 'airbnb', 'eslint-config-airbnb-typescript-prettier' ],
+  extends: ['airbnb', 'eslint-config-airbnb-typescript-prettier'],
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module',
@@ -29,5 +29,6 @@ module.exports = {
     '@typescript-eslint/no-use-before-define': 'off',
     'no-use-before-define': 'off',
     'no-shadow': 'off',
+    'no-return-await': 'off',
   },
 };
