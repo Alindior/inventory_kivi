@@ -1,9 +1,10 @@
 import { Body, Controller, Post, ValidationPipe } from '@nestjs/common';
-import { AuthService } from './services/auth.service';
-import { CreateUserDto } from 'src/user/dto/create-user.dto';
 import { ApiTags } from '@nestjs/swagger';
+
+import { AuthService } from './auth.service';
+import { CreateUserDto } from '../user/dto/create-user.dto';
 import { SingInDto } from './dto/singIn.dto.';
-import { ReadableUser } from 'src/user/interfaces/readable-user.interface';
+import { ReadableUser } from '../user/interfaces/readable-user.interface';
 
 @ApiTags('auth')
 @Controller('auth')

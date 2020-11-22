@@ -1,9 +1,12 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { HttpStatus, Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { ConfigService } from '@nestjs/config';
-import { User } from 'src/user/interfaces/user.interface';
-import { TokenService } from 'src/token/token.service';
+
+import { User } from '../user/interfaces/user.interface';
+import { TokenService } from '../token/token.service';
+import { ErrorService } from '../shared/services/errorService/ErrorService';
+import { ErrorMessage } from '../shared/services/errorService/enums/ErrorMessage';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -23,8 +26,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     const tokenExists = await this.tokenService.exists(user._id, token);
     if (tokenExists) {
       return user;
-    } else {                                                                
-      throw new UnauthorizedException();
     }
+    throw ErrorService.createSummaryError(ErrorMessage.Unauthorized, HttpStatus.UNAUTHORIZED);
   }
 }

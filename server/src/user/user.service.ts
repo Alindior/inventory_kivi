@@ -6,18 +6,17 @@ import { Model } from 'mongoose';
 
 import { User } from './interfaces/user.interface';
 import { CreateUserDto } from './dto/create-user.dto';
-import { ModelName } from './enums/ModelName';
+import { userModelName } from './constants/userModelName';
 
 @Injectable()
 export class UserService {
   private readonly saltRounds = 10;
 
-  constructor(@InjectModel(ModelName.User) private readonly userModel: Model<User>) {}
+  constructor(@InjectModel(userModelName) private readonly userModel: Model<User>) {}
 
   async create(createUserDto: CreateUserDto): Promise<User> {
     const hash = await this.hashPassword(createUserDto.password);
-    const createdUser = new this.userModel(assignIn(createUserDto, { password: hash }));
-    return await createdUser.save();
+    return await this.userModel.create(assignIn(createUserDto, { password: hash }));
   }
 
   private async hashPassword(password: string): Promise<string> {
