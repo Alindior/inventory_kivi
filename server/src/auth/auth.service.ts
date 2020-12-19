@@ -1,4 +1,4 @@
-import { HttpStatus, Injectable } from '@nestjs/common';
+import { HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { compare } from 'bcryptjs';
 import { omit } from 'lodash';
@@ -26,9 +26,13 @@ export class AuthService {
     private readonly tokenService: TokenService,
   ) {}
 
-  async signUp(createUserDto: CreateUserDto): Promise<boolean> {
-    await this.userService.create(createUserDto);
-    return true;
+  async signUp(createUserDto: CreateUserDto): Promise<void> {
+    try {
+      await this.userService.create(createUserDto);
+    } catch (err) {
+      Logger.error(err.message);
+      throw ErrorService.createSummaryError(ErrorMessage.EmailAlreadyExist, HttpStatus.BAD_REQUEST);
+    }
   }
 
   async signIn({ email, password }: SingInDto): Promise<ReadableUser> {
@@ -44,8 +48,8 @@ export class AuthService {
     throw ErrorService.createSummaryError(ErrorMessage.UserIsNotExist, HttpStatus.BAD_REQUEST);
   }
 
-  async signUser({ _id, name }: User): Promise<string> {
-    const token = await this.generateToken({ _id, name });
+  async signUser({ _id, email }: User): Promise<string> {
+    const token = await this.generateToken({ _id, email });
 
     const expireAt = moment().add(1, 'day').toISOString();
 

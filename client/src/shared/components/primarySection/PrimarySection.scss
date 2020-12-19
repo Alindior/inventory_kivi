@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.PrimarySection {
+  @include vertical-indent($indent-xxl);
+
+  &__title {
+    text-align: center;
+  }
+}

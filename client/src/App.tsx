@@ -1,13 +1,9 @@
 import React from 'react';
-import { Button } from 'antd';
+import './shared/styles/index.scss';
+import Routes from './routes/Routes';
 
 function App() {
-  return (
-    <div>
-      <h1>Main App</h1>
-      <Button type="primary">Start</Button>
-    </div>
-  );
+  return <Routes />;
 }
 
 export default App;
