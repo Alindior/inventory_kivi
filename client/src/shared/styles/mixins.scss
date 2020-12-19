@@ -1,0 +1,11 @@
+@import 'variables';
+
+@mixin align-center($max-with) {
+  max-width: $max-with;
+  margin: 0 auto;
+}
+
+@mixin vertical-indent($indent) {
+  padding-top: $indent;
+  padding-bottom: $indent;
+}

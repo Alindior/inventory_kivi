@@ -1,7 +1,7 @@
 {
   "name": "test-project",
   "version": "1.0.0",
-  "repository": "https://github.com/Alindior/test-project.git",
+  "repository": "https://github.com/Alindior/inventory_kivi",
   "author": "Alindior <alindior123@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -25,11 +25,13 @@
   "dependencies": {
     "@nestjs/config": "^0.5.0",
     "@nestjs/swagger": "^4.7.1",
+    "bem-cn": "^3.0.1",
     "concurrently": "^5.3.0",
     "swagger-ui-express": "^4.1.4",
     "typescript": "^4.0.3"
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.6",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
     "eslint": "^7.13.0",

@@ -5,7 +5,7 @@ import { AppModule } from './App.module';
 import { ErrorService } from './shared/services/errorService/ErrorService';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   app.setGlobalPrefix(process.env.API_PATH);
   app.useGlobalPipes(
