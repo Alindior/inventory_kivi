@@ -105,7 +105,7 @@
         ]
       }
     ],
-    "selector-max-id": 0,
+    "selector-max-id": 1,
     "selector-max-universal": 1,
     "selector-pseudo-element-no-unknown": [
       true,
