@@ -6,10 +6,12 @@ import { AuthModule } from './auth/auth.module';
 
 import { configModule } from './configure.root';
 import { TokenModule } from './token/token.module';
+import { CardModule } from './card/card.module';
 
 @Module({
   imports: [
     UserModule,
+    CardModule,
     AuthModule,
     configModule,
     MongooseModule.forRoot(process.env.MONGO_URL, {
