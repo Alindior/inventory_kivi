@@ -1,0 +1,11 @@
+@import '../../../styles/variables';
+
+.CardsHeader {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+
+  &__btn {
+    font-weight: bold;
+  }
+}

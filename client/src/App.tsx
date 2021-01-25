@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Route, Router, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { Layout } from 'antd';
 import { Dispatch } from 'redux';
 
 import './styles/index.scss';
@@ -10,9 +9,8 @@ import { history } from './redux/store';
 import { RootState } from './redux/reducers/state';
 import { Auth } from './types';
 import Login from './login/Login';
-import NavBar from './shared/components/navBar/NavBar';
-import Header from './shared/components/header/Header';
 import Cards from './cards/Cards';
+import PrimaryLayout from './shared/components/primaryLayout/PrimaryLayout';
 
 interface Props {
   updateAuth: typeof AuthActions.updateAuth;
@@ -28,16 +26,10 @@ const App: React.FC<Props> = ({ updateAuth, auth }) => {
     <Router history={history}>
       <Switch>
         {auth ? (
-          <>
-            <Layout>
-              <NavBar />
-              <Layout>
-                <Header />
-                <Route path="/test" />
-                <Route path="/cards/new" component={Cards} />
-              </Layout>
-            </Layout>
-          </>
+          <PrimaryLayout>
+            <Route path="/test" />
+            <Route path="/cards/new" component={Cards} />
+          </PrimaryLayout>
         ) : (
           <Route component={Login} path="/" />
         )}

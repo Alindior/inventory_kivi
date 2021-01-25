@@ -1,3 +1,9 @@
-.SideMenu {
-  height: 100vh;
+@import '../../../styles/variables';
+
+.NavBar {
+    border-right: 1px solid $color-border;
+
+    &__SideMenu {
+      height: 100vh;
+    }
 }

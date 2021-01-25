@@ -1,0 +1,11 @@
+@import '../../../../styles/variables';
+
+.PrimaryLayoutContent {
+  &__container {
+    padding: $indent-md;
+  }
+
+  &__test {
+    background-color: greenyellow;
+  }
+}

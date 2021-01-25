@@ -17,4 +17,18 @@ export default class CardService {
   async getAll(): Promise<Card[]> {
     return this.cardModel.find();
   }
+
+  async update(cardId: string, createCardDto: Partial<CreateCardDto>): Promise<Card> {
+    await this.cardModel.updateOne({ _id: cardId }, createCardDto);
+
+    return this.cardModel.findById(cardId);
+  }
+
+  async getOneById(cardId: string): Promise<Card> {
+    return this.cardModel.findById(cardId);
+  }
+
+  async delete(cardId: string): Promise<void> {
+    await this.cardModel.findOneAndDelete({ _id: cardId });
+  }
 }

@@ -37,6 +37,8 @@ function* updateAuthWorker() {
   if (token) {
     const user = yield JwtService.decodeJwtToken(token);
 
+    yield AxiosService.setAuthToken(token);
+
     yield put(UserActions.setUser(user));
 
     yield put(AuthActions.setAuth(token));

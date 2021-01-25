@@ -9,3 +9,8 @@
   padding-top: $indent;
   padding-bottom: $indent;
 }
+
+@mixin btn-background($color){
+  background-color: $color;
+  border-color: $color;
+}

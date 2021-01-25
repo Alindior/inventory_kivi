@@ -1,0 +1,9 @@
+@import '../../styles/variables';
+
+.PrimaryContainer {
+  padding: $indent-lg;
+
+  &__content {
+    //background-color: $color-white;
+  }
+}
