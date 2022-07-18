@@ -24,6 +24,10 @@ const App: React.FC<Props> = ({ updateAuth, auth }) => {
     updateAuth();
   }, []);
 
+  const onButtonClick = () => {
+    console.log('TEST')
+  }
+
   return (
     <Router history={history}>
       <Switch>
