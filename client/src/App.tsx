@@ -23,7 +23,7 @@ const App: React.FC<Props> = ({ updateAuth, auth }) => {
   useEffect(() => {
     updateAuth();
   }, []);
-
+  HELLO JOPA!!!
   return (
     <Router history={history}>
       <Switch>
