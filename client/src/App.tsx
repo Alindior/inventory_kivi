@@ -23,7 +23,11 @@ const App: React.FC<Props> = ({ updateAuth, auth }) => {
   useEffect(() => {
     updateAuth();
   }, []);
-  HELLO JOPA!!!
+
+  const onButtonClick = () => {
+    console.log('TEST')
+  }
+
   return (
     <Router history={history}>
       <Switch>
